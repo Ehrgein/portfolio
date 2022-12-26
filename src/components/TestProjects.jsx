@@ -12,30 +12,57 @@ import App from "../App";
 function TestProjects() {
   const AnimationRef = useRef();
   const ProjectRef = useRef();
-  const hiddenRef = useRef();
+  const ProjectRefTwo = useRef();
+  const arrowAnimationRef = useRef();
+  const arrowAnimationRefTwo = useRef();
 
-  const [arrow, setactiveArrow] = useState(false);
-
+  const [menu, setMenu] = useState(false);
+  const [menuTwo, setMenuTwo] = useState(false);
+  const [isRotated, setisRotated] = useState(false);
+  const [isRotatedTwo, setisRotatedTwo] = useState(false);
   const [active, setActive] = useState(true);
   const [ctx, setCtx] = useState(gsap.context(() => {}, AnimationRef));
 
-  useLayoutEffect(() => {
-    let tl = gsap.timeline();
+  let tl = gsap.timeline();
 
+  useLayoutEffect(() => {
     tl.from(ProjectRef.current, {
       height: 0,
       ease: Power4.easeInOut,
     });
 
-    const projects = document.getElementById("projects");
+    const arrowbtn = document.getElementById("arrowbtn");
 
-    if (projects) {
-      projects.addEventListener("click", () => {
+    if (menu) {
+      arrowbtn.addEventListener("click", () => {
         tl.reversed() ? tl.play() : tl.reverse();
       });
     }
-  }, [arrow]);
+  }, [menu]);
 
+  useLayoutEffect(() => {
+    let tltwo = gsap.timeline();
+    tltwo.from(ProjectRefTwo.current, {
+      height: 0,
+      ease: Power4.easeInOut,
+    });
+
+    const arrowbtntwo = document.getElementById("arrowbtntwo");
+
+    if (menuTwo) {
+      arrowbtntwo.addEventListener("click", () => {
+        tltwo.reversed() ? tltwo.play() : tltwo.reverse();
+      });
+    }
+  }, [menuTwo]);
+
+  const onRotate = () => {
+    setisRotated((rotated) => !rotated);
+  };
+
+  const onRotateTwo = () => {
+    setisRotatedTwo((rotated) => !rotated);
+  };
   // useLayoutEffect(() => {
   //   ctx.add("remove", () => {
   //     gsap.to(ctx.selector(".projects"), {
@@ -63,20 +90,32 @@ function TestProjects() {
 
               <IconContext.Provider value={{ size: "50px", color: "black" }}>
                 <div>
-                  <BsChevronDown
-                    id="arrowbtn"
-                    onClick={() => setactiveArrow(!arrow)}
-                    className={
-                      arrow
-                        ? "project-arrow-down open ml-1 "
-                        : "project-arrow-down ml-1  duration-300"
-                    }
-                  />
+                  {menu ? (
+                    <BsChevronDown
+                      onClick={onRotate}
+                      ref={arrowAnimationRef}
+                      id="arrowbtn"
+                      className={
+                        isRotated
+                          ? "project-arrow-down-new"
+                          : "project-arrow-down open"
+                      }
+                    />
+                  ) : (
+                    <BsChevronDown
+                      onClick={() => setMenu(!menu)}
+                      className={
+                        menu
+                          ? "project-arrow-down open ml-1 pepito11 "
+                          : "project-arrow-down ml-1 duration-300 pepito40"
+                      }
+                    />
+                  )}
                 </div>
               </IconContext.Provider>
             </div>
             <div id="projects">
-              {arrow ? (
+              {menu ? (
                 <div ref={ProjectRef} className="overflow-hidden">
                   <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
                   <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
@@ -92,8 +131,44 @@ function TestProjects() {
             <div className="flex text-5xl items-center justify-between w-full border-b-2 border-t-2 border-black py-12">
               <span className="text-black cursor-pointer">KEEP MOVING</span>
               <IconContext.Provider value={{ size: "50px", color: "black" }}>
-                <BsChevronDown />
+                <div>
+                  {menuTwo ? (
+                    <BsChevronDown
+                      onClick={onRotateTwo}
+                      ref={arrowAnimationRefTwo}
+                      id="arrowbtntwo"
+                      className={
+                        isRotatedTwo
+                          ? "project-arrow-down-new"
+                          : "project-arrow-down open"
+                      }
+                    />
+                  ) : (
+                    <BsChevronDown
+                      onClick={() => setMenuTwo(!menuTwo)}
+                      className={
+                        menuTwo
+                          ? "project-arrow-down open ml-1 pepito11 "
+                          : "project-arrow-down ml-1 duration-300 pepito40"
+                      }
+                    />
+                  )}
+                </div>
               </IconContext.Provider>
+            </div>
+            <div id="projectstwo">
+              {menuTwo ? (
+                <div ref={ProjectRefTwo} className="overflow-hidden">
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
