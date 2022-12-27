@@ -8,7 +8,7 @@ function Header() {
 
   const GoToProjects = () => {
     window.scrollTo({
-      top: 1200,
+      top: 1000,
       behavior: "smooth",
     });
   };
@@ -23,42 +23,40 @@ function Header() {
       {
         opacity: 0,
       },
-      "+2.5"
+      "+1.8"
     ).from(
       testnav.words,
       {
         opacity: 0,
         y: "-100%",
       },
-      "+2.5"
+      "+1.8"
     );
   }, []);
 
   return (
-    <nav className="flex justify-center h-[5vh] bg-white">
-      <div className="w-[95%]">
-        <div className="flex h-[5vh]">
-          <div className="overflow-hidden flex items-center justify-end text-white text-2xl w-full">
-            <div
-              ref={navref}
-              className="navfont flex justify-between w-[20%] text-2xl  fixed"
-            >
-              <span
-                onClick={GoToProjects}
-                className="navunderline 
+    <nav className="flex justify-center h-[5vh] bg-white top-0 sticky">
+      <div className="flex h-[5vh] w-[95%] top-0 sticky">
+        <div className="overflow-hidden flex items-center justify-end text-white text-2xl w-full">
+          <div
+            ref={navref}
+            className="navfont flex justify-between w-[20%] text-3xl"
+          >
+            <span
+              onClick={GoToProjects}
+              className="navunderline 
               text-black cursor-pointer uppercase "
-              >
-                Projects
-              </span>
+            >
+              Projects
+            </span>
 
-              <span className="navunderline text-black  cursor-pointer uppercase">
-                About
-              </span>
+            <span className="navunderline text-black  cursor-pointer uppercase">
+              About
+            </span>
 
-              <span className="navunderline text-black cursor-pointer uppercase">
-                Contact
-              </span>
-            </div>
+            <span className="navunderline text-black cursor-pointer uppercase">
+              Contact
+            </span>
           </div>
         </div>
       </div>

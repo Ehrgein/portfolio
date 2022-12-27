@@ -44,7 +44,7 @@ function Title() {
           y: "100%",
           ease: Power3.easeOut,
         },
-        "1"
+        "0.5"
       )
       .from(
         texttwo.chars,
@@ -53,21 +53,21 @@ function Title() {
           delay: 0,
           y: "100%",
         },
-        "+1.8"
+        "+1.3"
       )
       .from(
         iconsRef.current,
         {
           opacity: 0,
         },
-        "+2.5"
+        "+1.9"
       )
       .from(
         workRef.current,
         {
           opacity: 0,
         },
-        "+2.5"
+        "1.9"
       );
   }, []);
 
@@ -92,7 +92,7 @@ function Title() {
             onClick={GoToProjects}
             className="work flex border-2 justify-center items-center border-black mt-4 mb-2 px-6 py-1 hover:text-white hover:bg-black cursor-pointer"
           >
-            <span className="font-semibold my-1">View my work</span>
+            <span className="my-1 workinfo">View my work</span>
             <AiOutlineArrowRight
               size={20}
               className="arrow ml-1 ease-in rotate-0"

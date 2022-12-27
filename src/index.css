@@ -29,12 +29,7 @@ body {
   transform: rotate(0deg);
 }
 
-.project-arrow-down {
-  transform: rotate(0deg);
-  transition: transform 0.3 ease-in;
-}
-
-.project-arrow-down.open {
+.project-arrow-down-open {
   transform: rotate(-180deg);
   transition: transform 0.3s ease-in;
 }
@@ -101,6 +96,16 @@ body {
   left: 33.33%;
   width: 33.33vw;
   height: 100vh;
+}
+
+.projectinfo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.workinfo {
+  font-family: "Poppins", "sans-serif";
+  font-weight: 300;
 }
 
 .transition-blackthree {

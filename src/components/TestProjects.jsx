@@ -1,175 +1,250 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
-import { AiOutlineArrowDown } from "react-icons/ai";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { gsap, Power4 } from "gsap";
-import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Transition } from "react-transition-group";
-import { Tween } from "gsap/gsap-core";
-import App from "../App";
+import css from "../assets/css.svg";
+import html from "../assets/html.svg";
+import js from "../assets/javascript.svg";
+import react from "../assets/react.svg";
+import node from "../assets/nodejs-icon.svg";
+import mysql from "../assets/mysql-icon.svg";
+import tailwind from "../assets/tailwindcss-icon.svg";
+import devices from "../assets/devices.png";
+import mongo from "../assets/mongodb-icon.svg";
+import puppeteer from "../assets/puppeteer.svg";
+import iphone from "../assets/kmiphone.png";
+import Project from "./Project";
+import { Link } from "react-router-dom";
+
+const images = [
+  {
+    name: "Project 1",
+    nametech: ["react", "css", "html", "tailwind", "node", "mysql", "js"],
+    path: [react, css, html, tailwind, node, mysql, js],
+  },
+  {
+    name: "Project 1",
+    nametech: ["react", "css", "html"],
+    path: [react, css, html],
+  },
+];
+
+const proj = images.map((item) => item.path);
 
 function TestProjects() {
   const AnimationRef = useRef();
-  const ProjectRef = useRef();
-  const ProjectRefTwo = useRef();
-  const arrowAnimationRef = useRef();
-  const arrowAnimationRefTwo = useRef();
 
-  const [menu, setMenu] = useState(false);
-  const [menuTwo, setMenuTwo] = useState(false);
+  const tl = useRef();
+  const tlone = useRef();
+  const tltwo = useRef();
+  const tlthree = useRef();
+  const navigate = useNavigate();
+
   const [isRotated, setisRotated] = useState(false);
+  const [isRotatedOne, setisRotatedOne] = useState(false);
   const [isRotatedTwo, setisRotatedTwo] = useState(false);
-  const [active, setActive] = useState(true);
+  const [isRotatedThree, setisRotatedThree] = useState(false);
+  const [testingActive, setTestingActive] = useState(false);
+  const [activeOne, setActiveOne] = useState(false);
+  const [activeTwo, setActiveTwo] = useState(false);
+  const [activeThree, setActiveThree] = useState(false);
+
+  const [activeProject, setActiveProject] = useState();
+  const [activeAnim, setActiveAnim] = useState(true);
   const [ctx, setCtx] = useState(gsap.context(() => {}, AnimationRef));
 
-  let tl = gsap.timeline();
-
-  useLayoutEffect(() => {
-    tl.from(ProjectRef.current, {
-      height: 0,
-      ease: Power4.easeInOut,
-    });
-
-    const arrowbtn = document.getElementById("arrowbtn");
-
-    if (menu) {
-      arrowbtn.addEventListener("click", () => {
-        tl.reversed() ? tl.play() : tl.reverse();
-      });
-    }
-  }, [menu]);
-
-  useLayoutEffect(() => {
-    let tltwo = gsap.timeline();
-    tltwo.from(ProjectRefTwo.current, {
-      height: 0,
-      ease: Power4.easeInOut,
-    });
-
-    const arrowbtntwo = document.getElementById("arrowbtntwo");
-
-    if (menuTwo) {
-      arrowbtntwo.addEventListener("click", () => {
-        tltwo.reversed() ? tltwo.play() : tltwo.reverse();
-      });
-    }
-  }, [menuTwo]);
+  const toggleTimeline = () => {
+    tl.current.reversed(!tl.current.reversed());
+    setisRotated((rotated) => !rotated);
+  };
 
   const onRotate = () => {
     setisRotated((rotated) => !rotated);
   };
 
-  const onRotateTwo = () => {
-    setisRotatedTwo((rotated) => !rotated);
-  };
-  // useLayoutEffect(() => {
-  //   ctx.add("remove", () => {
-  //     gsap.to(ctx.selector(".projects"), {
-  //       x: -2600,
-  //       opacity: 0.1,
-  //       duration: 1,
-  //       onComplete: () => {
-  //         setActive(false); //navigate("/keepmoving");
-  //       },
-  //     });
-  //   });
-  //   return () => ctx.revert(); //navigate("/keepmoving");
-  // }, []);
+  useLayoutEffect(() => {
+    ctx.add("remove", () => {
+      gsap.to(ctx.selector(".projects"), {
+        x: -2600,
+        duration: 1,
+        delay: 0,
+        onComplete: () => {
+          setActiveAnim(false);
+          navigate("/keepmoving");
+        },
+      });
+    });
+    return () => ctx.revert(), navigate("/keepmoving");
+  }, []);
+
+  const projnumber = [1, 2, 3];
+
+  const props = [
+    {
+      key: 1,
+      projname: "Keep Moving",
+      projurl: "https://keepmovingclothing.vercel.app/",
+      giturl: "https://github.com/Ehrgein/keep-moving-clothing",
+      mockup: devices,
+      tl: tlone,
+      tltwo: tltwo,
+      tlthree: tlthree,
+      active: activeOne,
+      setActive: setActiveOne,
+      testingActive: testingActive,
+      setTestingActive: setTestingActive,
+      isRotated: isRotatedOne,
+      setisRotated: setisRotatedOne,
+      setisRotatedTwo: setisRotatedTwo,
+      setisRotatedThree: setisRotatedThree,
+      projectid: "projectone",
+      activeProject: "projectone",
+      setActiveProject: setActiveProject,
+      style: "w-full flex flex-col justify-center border-black items-center",
+      projdata: [
+        {
+          name: "React",
+          icon: react,
+        },
+        {
+          name: "Node JS",
+          icon: node,
+        },
+        {
+          name: "Javascript",
+          icon: js,
+        },
+        {
+          name: "Tailwind",
+          icon: tailwind,
+        },
+        {
+          name: "MySQL",
+          icon: mysql,
+        },
+
+        {
+          name: "CSS",
+          icon: css,
+        },
+        {
+          name: "HTML",
+          icon: html,
+        },
+      ],
+      projinfo:
+        "Functional, responsive e-commerce in which users can register, make purchases and visualize which items they previously purchased.",
+    },
+    {
+      key: 2,
+      projname: "Lights Out",
+      projurl: "https://keepmovingclothing.vercel.app/",
+      giturl: "https://github.com/Ehrgein/keep-moving-clothing",
+      mockup: devices,
+      tlone: tlone,
+      tl: tltwo,
+      tlthree: tlthree,
+      active: activeTwo,
+      setActive: setActiveTwo,
+      isRotated: isRotatedTwo,
+      setisRotated: setisRotatedTwo,
+      setisRotatedOne: setisRotatedOne,
+      setisRotatedThree: setisRotatedThree,
+      projectid: "projecttwo",
+      activeProject: "projecttwo",
+      setActiveProject: setActiveProject,
+      style:
+        "w-full flex flex-col justify-center border-t border-black items-center",
+      projdata: [
+        {
+          name: "React",
+          icon: react,
+        },
+        {
+          name: "NodeJS",
+          icon: node,
+        },
+        {
+          name: "Puppeteer",
+          icon: puppeteer,
+        },
+        {
+          name: "Javascript",
+          icon: js,
+        },
+        {
+          name: "MongoDB",
+          icon: mongo,
+        },
+        {
+          name: "Tailwind",
+          icon: tailwind,
+        },
+
+        {
+          name: "CSS",
+          icon: css,
+        },
+        {
+          name: "HTML",
+          icon: html,
+        },
+      ],
+      projinfo:
+        "Lights out is a website that displays power outages across Buenos Aires. It works by scraping all reported outages by ENRE (Argentina's energy regulator) with Puppeteer every one hour and storing said data in a MongoDB database to be consumed later by the frontend and display it on a map.",
+    },
+    {
+      key: 3,
+      projname: "Keep Moving",
+      projurl: "https://keepmovingclothing.vercel.app/",
+      giturl: "https://github.com/Ehrgein/keep-moving-clothing",
+      mockup: devices,
+      tlone: tlone,
+      tltwo: tltwo,
+      tl: tlthree,
+      active: activeThree,
+      setActive: setActiveThree,
+      setisRotatedOne: setisRotatedOne,
+      setisRotatedTwo: setisRotatedTwo,
+      isRotated: isRotatedThree,
+      setisRotated: setisRotatedThree,
+      projectid: "projectthree",
+      activeProject: "projectthree",
+      setActiveProject: setActiveProject,
+      style:
+        "w-full flex-col justify-center border-t border-b border-black items-center mb-40",
+      projdata: [
+        {
+          name: "React",
+          icon: react,
+        },
+        {
+          name: "Tailwind",
+          icon: tailwind,
+        },
+      ],
+    },
+  ];
 
   return (
     <div ref={AnimationRef}>
-      {active ? (
-        <section className="projects sectiontwo w-[100vw] flex flex-col justify-center items-center">
-          <div className="flex justify-center items-center text-white mb-20">
-            <h3 className="text-5xl text-black">MY PROJECTS</h3>
+      {activeAnim ? (
+        <section className="projects sectiontwo w-[100vw] flex flex-col justify-start items-center">
+          <div className="w-[95%] flex justify-start items-start text-white mt-20 mb-12">
+            <h3 className=" text-4xl text-black">MY PROJECTS</h3>
+            <button
+              onClick={() => activeAnim && ctx.remove()}
+              className="text-black text-xl
+              "
+            >
+              hola
+            </button>
           </div>
-          <div className="w-[60%] flex flex-col justify-center  items-center">
-            <div className="flex text-5xl items-center justify-between w-full border-t-2 border-black py-12">
-              <span className="text-black cursor-pointer">KEEP MOVING</span>
-
-              <IconContext.Provider value={{ size: "50px", color: "black" }}>
-                <div>
-                  {menu ? (
-                    <BsChevronDown
-                      onClick={onRotate}
-                      ref={arrowAnimationRef}
-                      id="arrowbtn"
-                      className={
-                        isRotated
-                          ? "project-arrow-down-new"
-                          : "project-arrow-down open"
-                      }
-                    />
-                  ) : (
-                    <BsChevronDown
-                      onClick={() => setMenu(!menu)}
-                      className={
-                        menu
-                          ? "project-arrow-down open ml-1 pepito11 "
-                          : "project-arrow-down ml-1 duration-300 pepito40"
-                      }
-                    />
-                  )}
-                </div>
-              </IconContext.Provider>
-            </div>
-            <div id="projects">
-              {menu ? (
-                <div ref={ProjectRef} className="overflow-hidden">
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                </div>
-              ) : null}
-            </div>
-            <div className="flex text-5xl items-center justify-between w-full border-b-2 border-t-2 border-black py-12">
-              <span className="text-black cursor-pointer">KEEP MOVING</span>
-              <IconContext.Provider value={{ size: "50px", color: "black" }}>
-                <div>
-                  {menuTwo ? (
-                    <BsChevronDown
-                      onClick={onRotateTwo}
-                      ref={arrowAnimationRefTwo}
-                      id="arrowbtntwo"
-                      className={
-                        isRotatedTwo
-                          ? "project-arrow-down-new"
-                          : "project-arrow-down open"
-                      }
-                    />
-                  ) : (
-                    <BsChevronDown
-                      onClick={() => setMenuTwo(!menuTwo)}
-                      className={
-                        menuTwo
-                          ? "project-arrow-down open ml-1 pepito11 "
-                          : "project-arrow-down ml-1 duration-300 pepito40"
-                      }
-                    />
-                  )}
-                </div>
-              </IconContext.Provider>
-            </div>
-            <div id="projectstwo">
-              {menuTwo ? (
-                <div ref={ProjectRefTwo} className="overflow-hidden">
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                  <div>HOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLAHOLA</div>
-                </div>
-              ) : null}
-            </div>
+          <div className="w-[95%] flex flex-col justify-center  items-center">
+            {projnumber.map((item, index) => (
+              <Project props={props} idx={index} />
+            ))}
           </div>
         </section>
       ) : null}

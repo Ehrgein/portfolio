@@ -9,9 +9,10 @@ function TransitionWhite() {
 
     tl.to(ProjectRef.current, {
       duration: 1.5,
-      x: 2600,
+      x: -2600,
     });
   });
+  
 
   return (
     <div>
