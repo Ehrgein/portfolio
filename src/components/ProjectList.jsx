@@ -34,18 +34,15 @@ const proj = images.map((item) => item.path);
 
 function TestProjects() {
   const AnimationRef = useRef();
-
   const tl = useRef();
   const tlone = useRef();
   const tltwo = useRef();
   const tlthree = useRef();
-  const navigate = useNavigate();
 
   const [isRotated, setisRotated] = useState(false);
   const [isRotatedOne, setisRotatedOne] = useState(false);
   const [isRotatedTwo, setisRotatedTwo] = useState(false);
   const [isRotatedThree, setisRotatedThree] = useState(false);
-  const [testingActive, setTestingActive] = useState(false);
   const [activeOne, setActiveOne] = useState(false);
   const [activeTwo, setActiveTwo] = useState(false);
   const [activeThree, setActiveThree] = useState(false);
@@ -62,6 +59,8 @@ function TestProjects() {
   const onRotate = () => {
     setisRotated((rotated) => !rotated);
   };
+
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     ctx.add("remove", () => {
@@ -92,8 +91,6 @@ function TestProjects() {
       tlthree: tlthree,
       active: activeOne,
       setActive: setActiveOne,
-      testingActive: testingActive,
-      setTestingActive: setTestingActive,
       isRotated: isRotatedOne,
       setisRotated: setisRotatedOne,
       setisRotatedTwo: setisRotatedTwo,
@@ -192,7 +189,7 @@ function TestProjects() {
         },
       ],
       projinfo:
-        "Lights out is a website that displays power outages across Buenos Aires. It works by scraping all reported outages by ENRE (Argentina's energy regulator) with Puppeteer every one hour and storing said data in a MongoDB database to be consumed later by the frontend and display it on a map.",
+        "Lights out is a website that displays power outages across Buenos Aires. It works by scraping all reported outages by ENRE (Argentina's energy regulator) with Puppeteer.",
     },
     {
       key: 3,
@@ -243,7 +240,7 @@ function TestProjects() {
           </div>
           <div className="w-[95%] flex flex-col justify-center  items-center">
             {projnumber.map((item, index) => (
-              <Project props={props} idx={index} />
+              <Project props={props} idx={index} key={props.key} />
             ))}
           </div>
         </section>

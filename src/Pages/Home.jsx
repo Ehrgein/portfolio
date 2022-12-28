@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import TestProjects from "../components/TestProjects";
+import ProjectList from "../components/ProjectList";
 import Title from "../components/Title";
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
     <div>
       <Header />
       <Title />
-      <TestProjects />
+      <ProjectList />
     </div>
   );
 }

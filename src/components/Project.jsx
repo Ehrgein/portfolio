@@ -35,6 +35,13 @@ function Project({
   const NewProjectRef = useRef();
   const ProjectContainerRef = useRef();
 
+  gsap.config({
+    nullTargetWarn: false,
+    trialWarn: false,
+  });
+
+  
+
   const [ctx, setCtx] = useState(gsap.context(() => {}, AnimationRef));
 
   const toggleTimeline = () => {
@@ -60,8 +67,6 @@ function Project({
       props[idx].setisRotatedTwo(false);
     }
   };
-
-  console.log(props[idx].projdata);
 
   useLayoutEffect(() => {
     const ctx = gsap.context((self) => {
@@ -110,20 +115,16 @@ function Project({
           id={props[idx].projectid}
           className={`flex overflow-hidden w-full`}
         >
-          <div className="flex flex-col w-[60%] justify-start items-start mt-6">
+          <div className="flex flex-col w-[60%] justify-start items-start mt-10">
             <div className="flex justify-start items-start">
               <p className="text-lg font-normal projectinfo w-[80%]">
                 {props[idx].projinfo}
               </p>{" "}
             </div>
-            <div className="flex justify-start items-start w-full mt-8">
-              <p className="text-lg font-normal projectinfo w-[80%]">
-                The website was developed with the following stack:
-              </p>
-            </div>
+
             <div className="flex mt-10 projectinfo">
-              {props[idx].projdata.map((item) => (
-                <div className="flex items-center flex-col mx-2">
+              {props[idx].projdata.map((item, index) => (
+                <div key={index} className="flex items-center flex-col mx-2">
                   <img className="w-12 h-12" src={item.icon} />
                   <p className="mt-2 text-lg">{item.name}</p>
                 </div>
