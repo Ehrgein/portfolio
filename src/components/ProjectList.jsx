@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import portfoliomock from "../assets/mockupportfolio.png";
-import { BsChevronDown, BsListTask } from "react-icons/bs";
-import { IconContext } from "react-icons";
 import { gsap, Power4 } from "gsap";
 import { useNavigate } from "react-router-dom";
 import css from "../assets/css.svg";

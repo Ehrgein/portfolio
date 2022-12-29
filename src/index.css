@@ -162,7 +162,7 @@ body {
   visibility: visible;
 }
 
-::-webkit-scrollbar-thumb: {
+::-webkit-scrollbar-thumb {
   background: rgb(11, 11, 110);
   border-radius: 30px;
 }
