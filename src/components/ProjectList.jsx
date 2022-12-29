@@ -219,7 +219,7 @@ function TestProjects() {
         },
       ],
       projinfo:
-        "Personal portfolio with a minimalistic design, developed with the help of GSAP. The goal was to create a simple, yet informative portfolio that's comfortable to browse through.",
+        "Personal portfolio with a minimalist design, developed with the help of GSAP. The goal was to create a simple, yet informative portfolio that's comfortable to browse through.",
     },
   ];
 
