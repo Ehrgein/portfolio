@@ -29,14 +29,15 @@ function Transition({ menu, setMenu }) {
       .from(
         HomeSplit.chars,
         {
-          yPercent: 100,
-          duration: 0.6,
+          delay: 0,
+          y: "100%",
         },
         "+0.8"
       )
       .from(
         AboutSplit.words,
         {
+          delay: 0,
           y: "100%",
         },
         "+0.8"
@@ -88,7 +89,7 @@ function Transition({ menu, setMenu }) {
             <Link
               to="/"
               onClick={() => setMenu(!menu)}
-              className="text-white font-bold close text-7xl pb-20"
+              className="text-white font-bold close text-7xl mb-20"
             >
               <span ref={HomeRef}>HOME</span>
             </Link>
@@ -99,7 +100,7 @@ function Transition({ menu, setMenu }) {
           >
             <Link
               onClick={() => setMenu(!menu)}
-              className="text-white font-bold overflow-hidden close text-7xl pb-20"
+              className="text-white font-bold overflow-hidden close text-7xl mb-20"
               to="/about"
             >
               <span ref={AboutRef}>ABOUT</span>
