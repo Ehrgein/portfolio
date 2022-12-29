@@ -1,16 +1,7 @@
-import React, { useLayoutEffect, useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap, { Power3 } from "gsap";
 import { IconContext } from "react-icons";
 import { BsChevronDown } from "react-icons/bs";
-import css from "../assets/css.svg";
-import html from "../assets/html.svg";
-import js from "../assets/javascript.svg";
-import react from "../assets/react.svg";
-import node from "../assets/nodejs-icon.svg";
-import mysql from "../assets/mysql-icon.svg";
-import tailwind from "../assets/tailwindcss-icon.svg";
-import devices from "../assets/devices.png";
-import { Link } from "react-router-dom";
 
 function Project({
   props,

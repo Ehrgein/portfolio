@@ -1,9 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import gsap, { Power3 } from "gsap";
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
-import { RiLinkedinFill } from "react-icons/ri";
+import React, { useRef } from "react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AiFillLinkedin } from "react-icons/ai";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function About() {

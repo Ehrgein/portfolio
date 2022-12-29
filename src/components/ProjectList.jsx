@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
+import React, { useRef, useState, useLayoutEffect } from "react";
 import portfoliomock from "../assets/mockupportfolio.png";
-import { gsap, Power4 } from "gsap";
+import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
 import css from "../assets/css.svg";
 import html from "../assets/html.svg";
@@ -13,9 +13,8 @@ import devices from "../assets/devices.png";
 import mongo from "../assets/mongodb-icon.svg";
 import puppeteer from "../assets/puppeteer.svg";
 import gsapicon from "../assets/greensock-icon.svg";
-import iphone from "../assets/kmiphone.png";
+
 import Project from "./Project";
-import { Link } from "react-router-dom";
 
 const images = [
   {

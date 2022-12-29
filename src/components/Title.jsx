@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
-import { AiOutlineArrowRight, AiOutlineDribbble } from "react-icons/ai";
-import animation from "../Animation.gif";
+import React, { useState, useEffect, useRef } from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+
 import SplitType from "split-type";
 import { gsap, Power3 } from "gsap";
-import Transition from "./Transition";
-import { Link } from "react-router-dom";
 
 function Title() {
   const [inputValue, setInputValue] = useState("");
