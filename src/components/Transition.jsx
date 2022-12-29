@@ -86,6 +86,7 @@ function Transition({ menu, setMenu }) {
         <div className="flex h-[90%] overflow-x-hidden flex-col items-center justify-center w-full ">
           <div className=" overflow-hidden mb-20">
             <Link
+              to="/"
               onClick={() => setMenu(!menu)}
               className="text-white font-bold close text-7xl pb-20"
             >
