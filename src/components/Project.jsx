@@ -131,12 +131,12 @@ function Project({
                   className="bg-white border-2 py-1 px-6 border-black ml-10 mobilexs:ml-4 mobileM:ml-10
                 "
                 >
-                  <a href={giturl}>
+                  <a href={props[idx].giturl}>
                     <button className="text-xl">Github</button>
                   </a>
                 </div>
                 <div className="bg-white border-2 py-1 px-6 border-black tablet:ml-20 mobilexs:ml-16">
-                  <a href={projurl}>
+                  <a href={props[idx].projurl}>
                     <button className="text-xl">Deploy</button>
                   </a>
                 </div>
