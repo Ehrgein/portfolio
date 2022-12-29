@@ -10,46 +10,17 @@ function About() {
   const screenref = useRef();
   const mousewheelball = useRef();
 
-  useEffect(() => {
-    gsap.fromTo(
-      screenref.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 0.3,
-        duration: 10,
-        scrollTrigger: {
-          trigger: screenref.current,
-          markers: true,
-        },
-        scrub: 1,
-      }
-    );
-  }, []);
-
-  useEffect(() => {
-    gsap.to(mousewheelball.current, {
-      repeat: -1,
-      duration: 1,
-      ease: Power3.easeInOut,
-      y: 12,
-      opacity: 1,
-      yoyo: true,
-    });
-  });
-
   return (
     <div className="">
-      <div className="flex flex-col justify-center items-center w-full mt-36">
-        <div className="w-[60%] flex justify-center">
-          <h2 className="text-6xl font-bold text-center">
+      <div className="flex flex-col justify-center items-center w-full mt-36 mobilexs:mt-24">
+        <div className="tablet:w-[60%] w-full flex justify-center">
+          <h2 className="tablet:text-6xl mobileM:text-4xl mobilexs:text-3xl font-bold text-center">
             Hey there! I'm Alexis - a Frontend developer based in Buenos Aires.
           </h2>
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <div className="flex flex-col projectinfo text-xl justify-center items-center w-[60%] text-center mt-12 ">
+        <div className="flex flex-col projectinfo  tablet:w-[60%] mobilexs:w-full tablet:text-xl mobileM:text-base mobilexs:text-sm justify-center items-center  text-center tablet:mt-12 mobilexs:mt-6 mobilexs:mx-6">
           <p>
             I'm a developer who loves coding and making your ideas become real
             through functional, responsive, intuitive to use websites. I have a
@@ -61,7 +32,7 @@ function About() {
             Lately, I've been dedicating my time to learning WebGL, ThreeJS and
             animation libraries like GSAP.
           </p>
-          <p className="mt-8">
+          <p className="mt-8 mobilexs:mb-10">
             In my free time I like learning languages, discovering new bands and
             mustering the courage
             <span className="text-sky-500"> to code my own RPG game </span> (we

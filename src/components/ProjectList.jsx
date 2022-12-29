@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
+import portfoliomock from "../assets/mockupportfolio.png";
 import { BsChevronDown, BsListTask } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { gsap, Power4 } from "gsap";
@@ -13,6 +14,7 @@ import tailwind from "../assets/tailwindcss-icon.svg";
 import devices from "../assets/devices.png";
 import mongo from "../assets/mongodb-icon.svg";
 import puppeteer from "../assets/puppeteer.svg";
+import gsapicon from "../assets/greensock-icon.svg";
 import iphone from "../assets/kmiphone.png";
 import Project from "./Project";
 import { Link } from "react-router-dom";
@@ -119,25 +121,16 @@ function TestProjects() {
           name: "MySQL",
           icon: mysql,
         },
-
-        {
-          name: "CSS",
-          icon: css,
-        },
-        {
-          name: "HTML",
-          icon: html,
-        },
       ],
       projinfo:
         "Functional, responsive e-commerce in which users can register, make purchases and visualize which items they previously purchased.",
     },
     {
       key: 2,
-      projname: "Lights Out (in development)",
+      projname: "Lights Out ( in development )",
       projurl: "https://keepmovingclothing.vercel.app/",
       giturl: "https://github.com/Ehrgein/keep-moving-clothing",
-      mockup: devices,
+      mockup: "",
       tlone: tlone,
       tl: tltwo,
       tlthree: tlthree,
@@ -177,15 +170,6 @@ function TestProjects() {
           name: "Tailwind",
           icon: tailwind,
         },
-
-        {
-          name: "CSS",
-          icon: css,
-        },
-        {
-          name: "HTML",
-          icon: html,
-        },
       ],
       projinfo:
         "Lights out is a website that displays power outages across Buenos Aires. It works by scraping all reported outages by ENRE (Argentina's energy regulator) with Puppeteer.",
@@ -195,7 +179,7 @@ function TestProjects() {
       projname: "Portfolio",
       projurl: "https://keepmovingclothing.vercel.app/",
       giturl: "https://github.com/Ehrgein/keep-moving-clothing",
-      mockup: devices,
+      mockup: portfoliomock,
       tlone: tlone,
       tltwo: tltwo,
       tl: tlthree,
@@ -216,10 +200,29 @@ function TestProjects() {
           icon: react,
         },
         {
+          name: "Javascript",
+          icon: js,
+        },
+
+        {
+          name: "Gsap",
+          icon: gsapicon,
+        },
+        {
           name: "Tailwind",
           icon: tailwind,
         },
+        {
+          name: "HTML",
+          icon: html,
+        },
+        {
+          name: "CSS",
+          icon: css,
+        },
       ],
+      projinfo:
+        "Personal portfolio with a minimalistic design, developed with the help of GSAP. The goal was to create a simple, yet informative portfolio that's comfortable to browse through.",
     },
   ];
 
@@ -229,7 +232,7 @@ function TestProjects() {
         <section className="projects sectiontwo w-[100vw] flex flex-col justify-start items-center">
           <div className="w-[95%] flex justify-center items-center text-white mt-20 mb-6 ">
             <h3
-              onClick={() => activeAnim && ctx.remove()}
+              // onClick={() => activeAnim && ctx.remove()}
               className=" text-4xl text-black"
             >
               My WOrk

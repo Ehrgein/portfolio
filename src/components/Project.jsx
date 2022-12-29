@@ -113,42 +113,46 @@ function Project({
           id={props[idx].projectid}
           className={`flex overflow-hidden w-full`}
         >
-          <div className="flex flex-col w-[60%] justify-start items-start mt-10">
+          <div className="flex flex-col md:w-[60%] mobilexs:w-full justify-start items-start tablet:mt-10 mobilexs:mt-4">
             <div className="flex justify-start items-start">
-              <p className="text-lg font-normal projectinfo w-[80%]">
+              <p className="md:text-lg mobilexs:text-sm font-normal projectinfo md:w-[80%] mobilexs:w-full">
                 {props[idx].projinfo}
               </p>{" "}
             </div>
 
             <div className="flex mt-10 projectinfo">
               {props[idx].projdata.map((item, index) => (
-                <div key={index} className="flex items-center flex-col mx-2">
-                  <img className="w-12 h-12" src={item.icon} />
-                  <p className="mt-2 text-sm">{item.name}</p>
+                <div
+                  key={index}
+                  className="flex items-center flex-col desktop:mx-2 mobilexs:mx-1"
+                >
+                  <img
+                    className="md:w-12 md:h-12 mobilexs:h-6 mobilexs:w-6"
+                    src={item.icon}
+                  />
+                  <p className="mt-2 text-sm mobilexs:text-xs">{item.name}</p>
                 </div>
               ))}
             </div>
-            <div className="flex w-[100%] justify-start mt-10">
-              <div className="flex justify-between w-[60%]">
-                <div className="bg-white border-2 py-1 px-6 border-black">
+            <div className="flex w-[100%] justify-start mt-10 mb-10">
+              <div className="flex justify-between ">
+                <div
+                  className="bg-white border-2 py-1 px-6 border-black ml-10 mobilexs:ml-4 mobileM:ml-10
+                "
+                >
                   <a href="https://github.com/Ehrgein/keep-moving-clothing">
                     <button className="text-xl">Github</button>
                   </a>
                 </div>
-                <div className="bg-white border-2 py-1 px-6 border-black">
+                <div className="bg-white border-2 py-1 px-6 border-black tablet:ml-20 mobilexs:ml-16">
                   <a href="https://keepmovingclothing.vercel.app/">
                     <button className="text-xl">Deploy</button>
                   </a>
                 </div>
-                <div className="bg-white border-2 py-1 px-6 border-black">
-                  <Link to="/keepmoving">
-                    <button className="text-xl">Case Study</button>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
-          <div className="w-[50%] flex justify-start h-auto pb-10 ">
+          <div className="md:flex hidden w-[50%]  justify-start h-auto pb-10 ">
             <img className="h-[400px]" src={props[idx].mockup} />
           </div>
         </div>

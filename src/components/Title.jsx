@@ -77,7 +77,7 @@ function Title() {
         <div className="wrapper flex flex-col items-center justify-center mb-12">
           <h1
             ref={target}
-            className="uppercase overflow-hidden text-8xl mb-2 font-bold"
+            className="uppercase overflow-hidden tablet:text-8xl mobilexs:text-7xl mb-2 font-bold"
           >
             alexis ford
           </h1>
