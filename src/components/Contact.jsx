@@ -12,6 +12,8 @@ function Contact() {
   const screenref = useRef();
   const mousewheelball = useRef();
 
+  
+
   return (
     <div className="w-full">
       <div className="flex flex-col w-full justify-center items-center laptop:mt-36 mobilexs:mt-20">

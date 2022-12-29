@@ -143,7 +143,7 @@ function Project({
               </div>
             </div>
           </div>
-          <div className="md:flex hidden w-[50%]  justify-start h-auto pb-10 ">
+          <div className="md:flex w-[50%] hidden   justify-start h-auto pb-10 ">
             <img className="h-[400px]" src={props[idx].mockup} />
           </div>
         </div>

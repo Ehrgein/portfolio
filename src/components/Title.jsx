@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
-
 import SplitType from "split-type";
 import { gsap, Power3 } from "gsap";
 
