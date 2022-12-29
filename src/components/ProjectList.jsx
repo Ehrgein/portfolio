@@ -125,8 +125,8 @@ function TestProjects() {
     {
       key: 2,
       projname: "Lights Out ( in development )",
-      projurl: "https://keepmovingclothing.vercel.app/",
-      giturl: "https://github.com/Ehrgein/keep-moving-clothing",
+      projurl: "https://github.com/Ehrgein/lights-out",
+      giturl: "https://github.com/Ehrgein/lights-out",
       mockup: "",
       tlone: tlone,
       tl: tltwo,
@@ -174,8 +174,8 @@ function TestProjects() {
     {
       key: 3,
       projname: "Portfolio",
-      projurl: "https://keepmovingclothing.vercel.app/",
-      giturl: "https://github.com/Ehrgein/keep-moving-clothing",
+      projurl: "https://alexis-ford.vercel.app/",
+      giturl: "https://github.com/Ehrgein/portfolio",
       mockup: portfoliomock,
       tlone: tlone,
       tltwo: tltwo,
