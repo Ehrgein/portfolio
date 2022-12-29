@@ -32,7 +32,7 @@ function Transition({ menu, setMenu }) {
           delay: 0,
           y: "100%",
         },
-        "+0.8"
+        "+0.7"
       )
       .from(
         AboutSplit.words,
@@ -40,7 +40,7 @@ function Transition({ menu, setMenu }) {
           delay: 0,
           y: "100%",
         },
-        "+0.8"
+        "+0.7"
       )
       .from(
         ContactSplit.words,
@@ -48,7 +48,7 @@ function Transition({ menu, setMenu }) {
           delay: 0,
           y: "100%",
         },
-        "+0.8"
+        "+0.7"
       );
     console.log(HomeSplit);
   }, []);
@@ -60,7 +60,8 @@ function Transition({ menu, setMenu }) {
 
     tl.from(transitionRef.current, {
       x: 1080,
-      duration: 1,
+      ease: Power3.easeOut,
+      duration: 0.8,
     });
     close.addEventListener("click", (e) => {
       setMenu(!menu);
