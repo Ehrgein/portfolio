@@ -16,7 +16,7 @@ function Title() {
 
   const GoToProjects = () => {
     window.scrollTo({
-      top: 1200,
+      top: 900,
       behavior: "smooth",
     });
   };

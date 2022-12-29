@@ -8,7 +8,7 @@ function Header() {
 
   const GoToProjects = () => {
     window.scrollTo({
-      top: 1000,
+      top: 600,
       behavior: "smooth",
     });
   };
@@ -42,21 +42,25 @@ function Header() {
             ref={navref}
             className="navfont flex justify-between w-[20%] text-3xl"
           >
-            <span
-              onClick={GoToProjects}
-              className="navunderline 
+            <Link to="/">
+              <span
+                className="navunderline 
               text-black cursor-pointer uppercase "
-            >
-              Projects
-            </span>
+              >
+                Projects
+              </span>
+            </Link>
 
-            <span className="navunderline text-black  cursor-pointer uppercase">
-              About
-            </span>
-
-            <span className="navunderline text-black cursor-pointer uppercase">
-              Contact
-            </span>
+            <Link to="/about">
+              <span className="navunderline text-black  cursor-pointer uppercase">
+                About
+              </span>
+            </Link>
+            <Link to="/contact">
+              <span className="navunderline text-black cursor-pointer uppercase">
+                Contact
+              </span>
+            </Link>
           </div>
         </div>
       </div>

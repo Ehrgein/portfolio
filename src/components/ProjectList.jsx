@@ -33,6 +33,7 @@ const images = [
 const proj = images.map((item) => item.path);
 
 function TestProjects() {
+  const navigate = useNavigate();
   const AnimationRef = useRef();
   const tl = useRef();
   const tlone = useRef();
@@ -60,8 +61,6 @@ function TestProjects() {
     setisRotated((rotated) => !rotated);
   };
 
-  const navigate = useNavigate();
-
   useLayoutEffect(() => {
     ctx.add("remove", () => {
       gsap.to(ctx.selector(".projects"), {
@@ -74,7 +73,7 @@ function TestProjects() {
         },
       });
     });
-    return () => ctx.revert(), navigate("/keepmoving");
+    return () => ctx.revert();
   }, []);
 
   const projnumber = [1, 2, 3];
@@ -135,7 +134,7 @@ function TestProjects() {
     },
     {
       key: 2,
-      projname: "Lights Out",
+      projname: "Lights Out (in development)",
       projurl: "https://keepmovingclothing.vercel.app/",
       giturl: "https://github.com/Ehrgein/keep-moving-clothing",
       mockup: devices,
@@ -193,7 +192,7 @@ function TestProjects() {
     },
     {
       key: 3,
-      projname: "Keep Moving",
+      projname: "Portfolio",
       projurl: "https://keepmovingclothing.vercel.app/",
       giturl: "https://github.com/Ehrgein/keep-moving-clothing",
       mockup: devices,
@@ -210,7 +209,7 @@ function TestProjects() {
       activeProject: "projectthree",
       setActiveProject: setActiveProject,
       style:
-        "w-full flex-col justify-center border-t border-b border-black items-center mb-40",
+        "w-full flex-col justify-center border-t border-b border-black items-center ",
       projdata: [
         {
           name: "React",
@@ -228,19 +227,17 @@ function TestProjects() {
     <div ref={AnimationRef}>
       {activeAnim ? (
         <section className="projects sectiontwo w-[100vw] flex flex-col justify-start items-center">
-          <div className="w-[95%] flex justify-start items-start text-white mt-20 mb-12">
-            <h3 className=" text-4xl text-black">MY PROJECTS</h3>
-            <button
+          <div className="w-[95%] flex justify-center items-center text-white mt-20 mb-6 ">
+            <h3
               onClick={() => activeAnim && ctx.remove()}
-              className="text-black text-xl
-              "
+              className=" text-4xl text-black"
             >
-              hola
-            </button>
+              My WOrk
+            </h3>
           </div>
-          <div className="w-[95%] flex flex-col justify-center  items-center">
+          <div className="w-[95%] flex flex-col justify-center items-center">
             {projnumber.map((item, index) => (
-              <Project props={props} idx={index} key={props.key} />
+              <Project props={props} idx={index} key={index} />
             ))}
           </div>
         </section>

@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import ProjectList from "../components/ProjectList";
 import Title from "../components/Title";
 
-function Home() {
+function HomePage() {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

@@ -40,8 +40,6 @@ function Project({
     trialWarn: false,
   });
 
-  
-
   const [ctx, setCtx] = useState(gsap.context(() => {}, AnimationRef));
 
   const toggleTimeline = () => {
@@ -126,7 +124,7 @@ function Project({
               {props[idx].projdata.map((item, index) => (
                 <div key={index} className="flex items-center flex-col mx-2">
                   <img className="w-12 h-12" src={item.icon} />
-                  <p className="mt-2 text-lg">{item.name}</p>
+                  <p className="mt-2 text-sm">{item.name}</p>
                 </div>
               ))}
             </div>

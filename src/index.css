@@ -18,6 +18,19 @@ body {
   height: 100vh;
   background: white;
 }
+.sectionthree {
+  height: 100vh;
+  background: #121212;
+}
+.mousewheel {
+  transform: 0.2s ease-in;
+  transform: ;
+}
+
+.movearrow {
+  transition: transform 0.2s ease-in;
+  transform: rotate(90deg);
+}
 
 .work:hover .arrow {
   transition: transform 0.2s ease-in;
