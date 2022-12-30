@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Header() {
   const navref = useRef();
+  const burgerRef = useRef();
 
   const [menu, setMenu] = useState(false);
   console.log(menu);
@@ -42,6 +43,19 @@ function Header() {
       );
     }
   }, []);
+
+  useEffect(() => {
+    let mobiletl = gsap.timeline();
+
+    mobiletl.from(
+      burgerRef.current,
+      {
+        opacity: 0,
+        y: "-100%",
+      },
+      "+1.8"
+    );
+  });
 
   const handleHamburgerMenu = () => {
     setMenu(!menu);
@@ -89,7 +103,10 @@ function Header() {
       {/*mobile here */}
 
       <div className="sticky top-0">
-        <div className="md:hidden mobilexs:flex w-full justify-end items-center ">
+        <div
+          ref={burgerRef}
+          className="md:hidden mobilexs:flex w-full justify-end items-center "
+        >
           <GiHamburgerMenu
             onClick={handleHamburgerMenu}
             size={30}
