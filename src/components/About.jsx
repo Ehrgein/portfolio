@@ -23,7 +23,7 @@ function About() {
             I'm a developer who loves coding and bringing your ideas into
             responsive, intuitive, easy to use websites. I am quite interested
             in
-            <span className="text-sky-500">UX/UI</span> and I like to think my
+            <span className="text-sky-500"> UX/UI</span> and I like to think my
             work reflects that, making sure user experience is as smooth as
             possible by putting myself in their shoes.<br></br>
           </p>
