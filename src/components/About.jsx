@@ -21,10 +21,11 @@ function About() {
         <div className="flex flex-col projectinfo  tablet:w-[60%] mobilexs:w-full tablet:text-xl mobileM:text-base mobilexs:text-sm justify-center items-center  text-center tablet:mt-12 mobilexs:mt-6 mobilexs:mx-6">
           <p>
             I'm a developer who loves coding and bringing your ideas into
-            reality, responsive, intuitive to use websites. I have a profound
-            interest in <span className="text-sky-500">UX/UI</span> and I like
-            to think my work reflects that, making sure user experience is as
-            smooth as possible by putting myself in their shoes.<br></br>
+            responsive, intuitive, easy to use websites. I am quite interested
+            in
+            <span className="text-sky-500">UX/UI</span> and I like to think my
+            work reflects that, making sure user experience is as smooth as
+            possible by putting myself in their shoes.<br></br>
           </p>
           <p className="mt-8">
             Lately, I've been dedicating my time to learning WebGL, ThreeJS and
